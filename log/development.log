@@ -1312,3 +1312,95 @@ Processing by SongsController#edit as HTML
   Rendered songs/_form.html.erb (34118.6ms)
   Rendered songs/edit.html.erb within layouts/application (34119.6ms)
 Completed 200 OK in 34201ms (Views: 34200.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/songs/3/edit" for 66.176.138.53 at 2017-09-22 13:24:20 +0000
+Cannot render console from 66.176.138.53! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SongsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSong Load (0.2ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered songs/_form.html.erb (33.2ms)
+  Rendered songs/edit.html.erb within layouts/application (85.6ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (wrong number of arguments (given 2, expected 1)):
+    1: <%= form_for @song  do |f| %>
+    2:   <%= f.label :title %>
+    3: 
+    4:   <%= artist_select(@song.artist, @song)%>
+    5: 
+    6:   <%= f.text_field :title %><br>
+    7:   <%= f.label :artist_name %>
+  app/helpers/songs_helper.rb:3:in `artist_select'
+  app/views/songs/_form.html.erb:4:in `block in _app_views_songs__form_html_erb___3307087411186714856_70016663863400'
+  app/views/songs/_form.html.erb:1:in `_app_views_songs__form_html_erb___3307087411186714856_70016663863400'
+  app/views/songs/edit.html.erb:2:in `_app_views_songs_edit_html_erb__2376129093419431088_29061780'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (55.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.0ms)
+
+
+Started GET "/songs/3/edit" for 66.176.138.53 at 2017-09-22 13:24:47 +0000
+Cannot render console from 66.176.138.53! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSong Load (0.2ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered songs/_form.html.erb (65.1ms)
+  Rendered songs/edit.html.erb within layouts/application (65.8ms)
+Completed 200 OK in 614ms (Views: 606.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/songs/3/edit" for 66.176.138.53 at 2017-09-22 13:25:01 +0000
+Cannot render console from 66.176.138.53! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSong Load (0.2ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered songs/_form.html.erb (6.5ms)
+  Rendered songs/edit.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/artists" for 66.176.138.53 at 2017-09-22 13:25:07 +0000
+Cannot render console from 66.176.138.53! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ArtistsController#index as HTML
+  [1m[35mArtist Load (0.2ms)[0m  SELECT "artists".* FROM "artists"
+  Rendered artists/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 26ms (Views: 25.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/artists/4/songs" for 66.176.138.53 at 2017-09-22 13:25:09 +0000
+Cannot render console from 66.176.138.53! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#index as HTML
+  Parameters: {"artist_id"=>"4"}
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE "songs"."artist_id" = ?  [["artist_id", 4]]
+  Rendered songs/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 23ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/songs/8" for 66.176.138.53 at 2017-09-22 13:25:12 +0000
+Cannot render console from 66.176.138.53! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mSong Load (0.1ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mArtist Load (0.1ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered songs/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/artists/4/songs/8/edit" for 66.176.138.53 at 2017-09-22 13:25:13 +0000
+Cannot render console from 66.176.138.53! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#edit as HTML
+  Parameters: {"artist_id"=>"4", "id"=>"8"}
+  [1m[36mArtist Load (0.1ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mSong Load (0.2ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."artist_id" = ? AND "songs"."id" = ? LIMIT 1  [["artist_id", 4], ["id", 8]]
+  Rendered songs/_form.html.erb (2.8ms)
+  Rendered songs/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.3ms)
